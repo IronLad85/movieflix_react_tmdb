@@ -1,0 +1,33 @@
+.single-movie-info {
+  padding-top: 30px;
+  .movie-details {
+    .images {
+      .image {
+        margin: 0 15px 30px;
+        width: 185px;
+        height: 105px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 4px;
+        background: #262626;
+        img {
+          &.img-loaded {
+            transform: scale(1);
+            opacity: 1;
+          }
+        }
+      }
+      .images-inner {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .title {
+        display: block;
+        margin-bottom: 20px;
+        font-size: 20px;
+        color: #fff;
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.movies-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+// .movies-inner::after {
+//   content: "";
+//   flex: 0.92;
+// }
+
+.movies-list-container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  flex-direction: column;
+}
