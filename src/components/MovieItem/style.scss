@@ -69,6 +69,7 @@
   }
   .movie-rating {
     border-radius: 2px;
+    padding-top: 2px;
     position: absolute;
     left: -5px;
     top: 5px;
@@ -78,17 +79,19 @@
     height: 18px;
     text-align: center;
     font-size: 11px;
-    background-color: #aaa;
+    background-color: #d28800;
+    font-family: monospace;
+    font-weight: bold;
     line-height: 18px;
     &.movie-rating-positive {
       background-color: #3bb33b;
+      font-weight: bold;
     }
   }
   .movie-title {
     display: block;
     text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 16px;
     line-height: 18px;
     color: rgba(255, 255, 255, 0.7);
     transition: all 0.4s ease;

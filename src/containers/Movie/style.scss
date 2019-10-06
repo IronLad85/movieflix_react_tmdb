@@ -1,8 +1,20 @@
+@import "node_modules/react-modal-video/scss/modal-video.scss";
+
 .blur-backdrop {
   position: absolute;
-  z-index: 0;
+  z-index: -1;
   width: 100%;
   height: 100%;
+}
+
+.modal-video-close-btn {
+  cursor: pointer;
+  right: -30px;
+  top: -25px;
+}
+
+.modal-video {
+  background-color: rgba(0, 0, 0, 0.75) !important;
 }
 
 .backdrop-img {
@@ -20,16 +32,68 @@
 
 .single-movie-info {
   margin-bottom: 30px;
+  font-family: "Montserrat", sans-serif;
+  width: 85%;
+  margin: auto;
 
   .single-movie-info-inner {
     display: flex;
     position: relative;
   }
 
+  .imgList-fillholder {
+    width: 185px;
+    height: 105px;
+    margin: 0 15px 10px;
+  }
+
+  .movie-info-primary {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .movie-info-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 75%;
+    max-width: 85%;
+  }
+
+  .trailer-button-icon {
+    color: white;
+    font-size: 26px;
+    padding-right: 8px;
+  }
+
+  .trailer-button {
+    display: flex;
+    flex: 0;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+    width: max-content;
+    font-weight: 800;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: white;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    padding: 0.3em 0.8em;
+    background-size: 200% auto;
+    color: white;
+    background-image: linear-gradient(to right, #895cf2 0%, #cf8768 50%, #895cf2 100%);
+    transition: 0.3s;
+    &:hover {
+      background-position: right center;
+    }
+  }
+
   .movie-poster {
-    height: 600px;
-    width: 400px;
-    min-width: 400px;
+    height: 480px;
+    width: 320px;
+    min-width: 320px;
     position: relative;
     border-radius: 4px;
     overflow: hidden;
@@ -71,7 +135,9 @@
     height: 28px;
     text-align: center;
     font-size: 14px;
-    background-color: #aaa;
+    background-color: #d28800;
+    font-weight: bold;
+    font-family: monospace;
     line-height: 28px;
 
     &.movie-rating-positive {
@@ -91,13 +157,13 @@
         display: block;
         margin-bottom: 5px;
         font-size: 12px;
-        font-weight: 500;
+        font-weight: bold;
       }
     }
 
     .movie-description {
       color: #fff;
-      font-size: 14px;
+      font-size: 18px;
       line-height: 24px;
       font-weight: 300;
       margin-bottom: 30px;
@@ -105,8 +171,10 @@
       span {
         display: block;
         margin-bottom: 5px;
-        font-size: 12px;
-        font-weight: 500;
+        font-size: 14.5px;
+        font-family: monospace;
+        font-weight: bold;
+        text-transform: uppercase;
       }
     }
 
@@ -114,11 +182,13 @@
       span {
         display: block;
         margin-bottom: 5px;
-        font-size: 12px;
-        font-weight: 500;
+        font-size: 14.5px;
+        font-family: monospace;
+        text-transform: uppercase;
+        font-weight: bold;
       }
 
-      font-size: 15px;
+      font-size: 18px;
       color: #fff;
       margin-bottom: 30px;
     }
@@ -136,7 +206,8 @@
         margin-right: 10px;
         padding: 5px 10px;
         border-radius: 5px;
-        font-size: 11px;
+        font-size: 13px;
+        font-weight: bold;
       }
     }
   }

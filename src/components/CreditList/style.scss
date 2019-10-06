@@ -1,6 +1,13 @@
 .credits {
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+
+  .credit-fillholder {
+    min-width: 115px;
+    min-height: 160px;
+    content: "";
+  }
+
   .loading-box {
     height: 225px;
     &:before {
@@ -8,35 +15,37 @@
       width: 30px;
     }
   }
+
+  .show-all-button {
+    font-size: 14px !important;
+    font-weight: bold;
+    padding: 5px 8px !important;
+    color: #ddd;
+    cursor: pointer;
+    border: 1px solid #fff;
+    line-height: 18px;
+    border-radius: 3px;
+    user-select: none;
+    &.active {
+      background: #fff;
+      border: 1px solid transparent;
+      color: #000;
+    }
+  }
+
   .credits-title {
     margin-bottom: 20px;
-    font-size: 20px;
+    font-size: 22px;
     color: #fff;
+    font-weight: bold;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    span {
-      font-size: 10px;
-      color: #ddd;
-      margin-left: 20px;
-      cursor: pointer;
-      border: 1px solid #fff;
-      padding: 1px 6px;
-      line-height: 18px;
-      border-radius: 3px;
-      margin-right: 10px;
-      user-select: none;
-      &.active {
-        background: #fff;
-        border: 1px solid transparent;
-        color: #000;
-      }
-    }
   }
 }
 .credits-inline {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -15px;
-  margin-right: -15px;
+  justify-content: space-between;
+  padding-bottom: 20px;
 }

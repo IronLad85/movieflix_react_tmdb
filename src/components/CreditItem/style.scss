@@ -1,11 +1,13 @@
 .credits {
+  margin-top: 30px;
+
   .credit-item {
-    margin: 0 15px 30px;
     width: 115px;
     .credit-img {
       width: 100%;
       height: 160px;
       position: relative;
+      box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
       border-radius: 5px;
       overflow: hidden;
       margin-bottom: 10px;
@@ -36,12 +38,12 @@
     .credit-content {
       color: #fff;
       .credit-name {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 600;
         margin-bottom: 5px;
       }
       .credit-character {
-        font-size: 11px;
+        font-size: 12.5px;
       }
     }
   }

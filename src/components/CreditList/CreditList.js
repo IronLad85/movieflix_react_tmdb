@@ -7,6 +7,7 @@ import "./style.scss";
 import CreditItem from "../../components/CreditItem";
 import { LoadMovieCredits } from "../../actions/credits";
 import { translate } from "react-i18next";
+import { findRepos } from "jest-changed-files";
 
 class CreditList extends Component {
   constructor(props) {
@@ -22,22 +23,39 @@ class CreditList extends Component {
   }
 
   showAll = () => {
-    const { history, match } = this.props;
-
     this.setState({
       visibleAll: !this.state.visibleAll
     });
 
-    if (this.state.visibleAll) history.push(`/movie/${match.params.movie_id}`);
-    else history.push(`/movie/${match.params.movie_id}/cast`);
+    // if (this.state.visibleAll) history.push(`/movie/${match.params.movie_id}`);
+    // else history.push(`/movie/${match.params.movie_id}/cast`);
   };
 
+  getCreditRow(credits) {
+    return credits.map(credit =>
+      credit != "FILL_EMPTY" ? <CreditItem key={credit.id} credit={credit} /> : <div className="credit-fillholder" />
+    );
+  }
+
+  chuckArray(credits) {
+    return Array.from({ length: Math.ceil(credits.length / 8) }, (v, i) => {
+      let subCreditArray = credits.slice(i * 8, (i + 1) * 8);
+      if (subCreditArray.length == 8) {
+      } else {
+        for (let i = subCreditArray.length; i < 8; i++) {
+          subCreditArray.push("FILL_EMPTY");
+        }
+      }
+      return subCreditArray;
+    });
+  }
+
   render() {
-    const { credits, isFetched, t } = this.props;
+    var { credits, isFetched, t } = this.props;
+    credits = credits.filter(credit => !!credit.profile_path);
+    let creditsArray = this.chuckArray(credits);
 
-    let creditsArray = credits;
-
-    if (!this.state.visibleAll) creditsArray = credits.slice(0, 6);
+    if (!this.state.visibleAll) creditsArray = creditsArray.slice(0, 1);
 
     if (!isFetched)
       return (
@@ -50,17 +68,21 @@ class CreditList extends Component {
       <div className="credits">
         <div className="credits-title">
           {t("Top Billed Cast")}
-          {credits.length > 6 && (
-            <span className={this.state.visibleAll ? "active" : ""} onClick={this.showAll}>
-              {t("Show all")}
+          {credits.length > 8 && (
+            <span
+              className={this.state.visibleAll ? "active show-all-button" : "show-all-button"}
+              onClick={this.showAll}>
+              {t(this.state.visibleAll ? "Show Less" : "Show More")}
             </span>
           )}
         </div>
-        <div className="credits-inline">
-          {creditsArray.map(credit => (
-            <CreditItem key={credit.id} credit={credit} />
-          ))}
-        </div>
+        {creditsArray.map((credits, index) => {
+          return (
+            <div className="credits-inline" key={index}>
+              {this.getCreditRow(credits)}
+            </div>
+          );
+        })}
       </div>
     );
   }

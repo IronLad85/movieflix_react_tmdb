@@ -19,6 +19,17 @@ export default (state = initialState, action) => {
         data: action.payload,
         isFetched: true
       };
+    case Actions.LOAD_MOVIE_VIDEO_REQUEST:
+      return {
+        ...state,
+        areVideosFetched: false
+      };
+    case Actions.LOAD_MOVIE_VIDEO_SUCCESS:
+      return {
+        ...state,
+        videos: action.payload.results,
+        areVideosFetched: true
+      };
     default:
       return state;
   }
