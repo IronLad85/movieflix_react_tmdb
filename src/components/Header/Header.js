@@ -21,7 +21,11 @@ class Header extends Component {
     const { history } = this.props;
     let value = e.target.value;
     if (value.length > 0) {
-      history.push(`/search/${value}`);
+      if (!window.location.pathname.includes("/search")) {
+        history.push(`/search/${value}`);
+      } else {
+        history.replace(`/search/${value}`);
+      }
     } else {
       history.push(`/`);
     }
@@ -36,14 +40,20 @@ class Header extends Component {
       <header>
         <div className="container">
           <div className="content">
-            <Link to={`/`} className="logo">
+            <div
+              className="logo"
+              onClick={() => {
+                if (window.location.pathname !== "/") {
+                  this.props.history.push("/");
+                }
+              }}>
               <span>{t("MovieFlix")}</span>
-            </Link>
+            </div>
             <div className="header-search-field">
               <input
                 type="text"
                 placeholder={t("Movies, person, movie theaters")}
-                onInput={this.searchInputChange}
+                onChange={this.searchInputChange}
                 value={searchText}
               />
               <button className="search-btn"></button>

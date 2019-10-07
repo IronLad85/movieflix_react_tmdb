@@ -1,5 +1,12 @@
 .single-movie-info {
   padding-top: 30px;
+
+  .imgList-fillholder {
+    width: 185px;
+    height: 105px;
+    margin: 0 15px 10px;
+  }
+
   .images {
     .title {
       display: block;
@@ -8,20 +15,6 @@
       color: #fff;
       font-weight: bold;
       width: 100%;
-    }
-
-    @media screen and (min-width: 1440px) {
-      .pswp-thumbnail {
-        width: 210px !important;
-        height: 120px !important;
-        margin: 0 10px 30px !important;
-      }
-
-      .imgList-fillholder {
-        width: 210px !important;
-        height: 120px !important;
-        margin: 0 10px 30px !important;
-      }
     }
 
     .image {
@@ -42,6 +35,38 @@
     .images-inner {
       display: flex;
       flex-wrap: wrap;
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    .pswp-thumbnail {
+      width: 210px !important;
+      height: 120px !important;
+      margin: 0 10px 30px !important;
+    }
+
+    .imgList-fillholder {
+      width: 210px !important;
+      height: 120px !important;
+      margin: 0 10px 30px !important;
+    }
+  }
+
+  @media screen and (max-width: 1279px) {
+    .pswp-thumbnails {
+      margin: 0 !important;
+    }
+
+    .pswp-thumbnail {
+      width: 160px !important;
+      height: 95px !important;
+      margin: 0 0 30px !important;
+    }
+
+    .imgList-fillholder {
+      width: 160px !important;
+      height: 90px !important;
+      margin: 0 0 30px !important;
     }
   }
 }

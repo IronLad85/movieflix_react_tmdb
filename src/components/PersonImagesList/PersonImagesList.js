@@ -14,7 +14,9 @@ import config from "../../config";
 class PersonImagesList extends Component {
   componentDidMount() {
     const { match, LoadPersonImages } = this.props;
-    LoadPersonImages(match.params.person_id);
+    LoadPersonImages(match.params.person_id).then(() => {
+      setTimeout(this.renderEmptyInList.bind(this), 100);
+    });
   }
 
   imageLoaded = e => {
@@ -24,6 +26,23 @@ class PersonImagesList extends Component {
   getThumbnailContent = item => {
     return <img src={item.thumbnail} onLoad={this.imageLoaded} alt={item.thumbnail} />;
   };
+
+  renderEmptyInList() {
+    let containerRef = document.getElementsByClassName("pswp-thumbnails")[0];
+    let fillHolderCount = document.getElementsByClassName("personList-fillholder").length;
+    let noOfTotalImages = (this.props.images || []).length;
+    console.log(containerRef, !fillHolderCount, noOfTotalImages % 7 !== 0);
+    if (containerRef && !fillHolderCount && noOfTotalImages % 7 !== 0) {
+      let noOfPlaceHolders = 7 - (noOfTotalImages % 7);
+      if (noOfPlaceHolders >= 1) {
+        for (let i = 1; i <= noOfPlaceHolders; i++) {
+          let element = document.createElement("div");
+          element.className = "personList-fillholder";
+          containerRef.appendChild(element);
+        }
+      }
+    }
+  }
 
   render() {
     const { images, isFetched, t } = this.props;

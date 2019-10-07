@@ -32,8 +32,12 @@ class CreditList extends Component {
   };
 
   getCreditRow(credits) {
-    return credits.map(credit =>
-      credit != "FILL_EMPTY" ? <CreditItem key={credit.id} credit={credit} /> : <div className="credit-fillholder" />
+    return credits.map((credit, index) =>
+      credit != "FILL_EMPTY" ? (
+        <CreditItem key={credit.id} credit={credit} />
+      ) : (
+        <div key={index} className="credit-fillholder" />
+      )
     );
   }
 

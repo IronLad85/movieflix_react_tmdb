@@ -4,10 +4,12 @@
   justify-content: center;
 }
 
-// .movies-inner::after {
-//   content: "";
-//   flex: 0.92;
-// }
+.movie-fillholder {
+  width: 185px;
+  margin: 0 33px;
+  margin-bottom: 30px;
+  position: relative;
+}
 
 .movies-list-container {
   display: flex;

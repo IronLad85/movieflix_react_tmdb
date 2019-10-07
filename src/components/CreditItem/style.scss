@@ -47,4 +47,24 @@
       }
     }
   }
+
+  @media screen and (max-width: 1279px) {
+    .credit-fillholder {
+      min-width: 100px;
+      min-height: 140px;
+      content: "";
+    }
+
+    .credit-item {
+      width: 100px !important;
+
+      .credit-img {
+        height: 150px !important;
+      }
+    }
+
+    .credit-name {
+      font-size: 13px !important;
+    }
+  }
 }

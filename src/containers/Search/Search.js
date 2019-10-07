@@ -8,6 +8,7 @@ import "./style.scss";
 
 import MoviesList from "../../components/MoviesList";
 import { LoadSearchMovies, ClearSearchText } from "../../actions/movies";
+import _ from "underscore";
 
 class Search extends Component {
   static path = "/search/:query/:page?";
@@ -34,13 +35,14 @@ class Search extends Component {
 
   render() {
     const { t } = this.props;
-
     return (
-      <div className="movies">
-        <Helmet>
-          <title>{t("MovieFlix")}</title>
-        </Helmet>
-        <MoviesList />
+      <div className="generic-background scroll-view">
+        <div className="movies fluid-container">
+          <Helmet>
+            <title>{t("MovieFlix")}</title>
+          </Helmet>
+          <MoviesList />
+        </div>
       </div>
     );
   }
@@ -53,6 +55,12 @@ const mapDispatchToProps = dispatch =>
     },
     dispatch
   );
+
+const mapStateToProps = state => {
+  return {
+    searchText: state.movies.searchText
+  };
+};
 
 export default translate("translations")(
   withRouter(

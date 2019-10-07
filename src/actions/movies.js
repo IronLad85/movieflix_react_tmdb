@@ -7,7 +7,7 @@ export const LOAD_MOVIES_ERROR = "LOAD_MOVIES_ERROR";
 export const LOAD_SEARCH_MOVIES_REQUEST = "LOAD_SEARCH_MOVIES_REQUEST";
 export const LOAD_SEARCH_MOVIES_SUCCESS = "LOAD_SEARCH_MOVIES_SUCCESS";
 export const LOAD_SEARCH_MOVIES_ERROR = "LOAD_SEARCH_MOVIES_ERROR";
-
+export const UPDATE_SEARCH_TEXT = "UPDATE_SEARCH_TEXT";
 export const CHANGE_MOVIES_FILTER = "CHANGE_MOVIES_FILTER";
 
 export const CLEAR_SEARCH_TEXT = "CLEAR_SEARCH_TEXT";
@@ -101,10 +101,25 @@ export const ClearSearchText = () => {
   };
 };
 
+export const UpdateSearchText = searchString => {
+  return dispatch => {
+    dispatch(onChangeSearchText.request(searchString));
+  };
+};
+
 const onClearSearchText = {
   request: () => {
     return {
       type: CLEAR_SEARCH_TEXT
+    };
+  }
+};
+
+const onChangeSearchText = {
+  request: searchText => {
+    return {
+      type: UPDATE_SEARCH_TEXT,
+      searchText
     };
   }
 };

@@ -14,6 +14,19 @@ class PersonCreditsList extends Component {
     LoadPersonMovieCredits(match.params.person_id);
   }
 
+  renderFillHolders(movies) {
+    let fillHolderUI = [];
+    let modulusValue = movies.length % 5;
+    let noOfFillHolders = 5 - modulusValue;
+    if (!!modulusValue && noOfFillHolders > 0) {
+      for (let i = 1; i <= noOfFillHolders; i++) {
+        fillHolderUI.push(<div className="movie-fillholder" />);
+      }
+      return fillHolderUI;
+    }
+    return null;
+  }
+
   render() {
     const { movies, isFetched, t } = this.props;
 
@@ -33,6 +46,7 @@ class PersonCreditsList extends Component {
             {movies.map(movie => (
               <MovieItem key={movie.id} movie={movie} />
             ))}
+            {this.renderFillHolders(movies)}
           </div>
         </div>
       </div>

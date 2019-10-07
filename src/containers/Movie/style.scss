@@ -30,6 +30,12 @@
   transition: opacity 0.5s;
 }
 
+@media screen and (max-width: 1279px) {
+  .single-movie-info {
+    width: 90% !important;
+  }
+}
+
 .single-movie-info {
   margin-bottom: 30px;
   font-family: "Montserrat", sans-serif;
@@ -39,12 +45,6 @@
   .single-movie-info-inner {
     display: flex;
     position: relative;
-  }
-
-  .imgList-fillholder {
-    width: 185px;
-    height: 105px;
-    margin: 0 15px 10px;
   }
 
   .movie-info-primary {
@@ -78,7 +78,7 @@
     font-size: 14px;
     text-transform: capitalize;
     color: white;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     border-radius: 8px;
     padding: 0.3em 0.8em;
     background-size: 200% auto;

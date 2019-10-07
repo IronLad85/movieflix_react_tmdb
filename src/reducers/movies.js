@@ -44,6 +44,11 @@ export default (state = initialState, action) => {
         ...state,
         searchText: ""
       };
+    case Actions.UPDATE_SEARCH_TEXT:
+      return {
+        ...state,
+        searchText: action.searchText
+      };
     default:
       return state;
   }

@@ -14,7 +14,11 @@ import config from "../../config";
 class MoviesList extends Component {
   componentDidMount() {
     const { match, LoadMovieImages } = this.props;
-    LoadMovieImages(match.params.movie_id);
+    LoadMovieImages(match.params.movie_id).then(() => {
+      setTimeout(() => {
+        this.renderEmptyInList();
+      }, 200);
+    });
   }
 
   imageLoaded = e => {
@@ -28,11 +32,10 @@ class MoviesList extends Component {
   renderEmptyInList() {
     let containerRef = document.getElementsByClassName("pswp-thumbnails")[0];
     let fillHolderCount = document.getElementsByClassName("imgList-fillholder").length;
-    let noOfTotalImages = (this.props.images.backdrops || []).length % 5;
-
-    if (containerRef && !fillHolderCount && noOfTotalImages > 0) {
-      let noOfPlaceHolders = 5 - noOfTotalImages;
-      if (noOfPlaceHolders > 1) {
+    let noOfTotalImages = (this.props.images.backdrops || []).length;
+    if (containerRef && !fillHolderCount && noOfTotalImages % 5 !== 0) {
+      let noOfPlaceHolders = 5 - (noOfTotalImages % 5);
+      if (noOfPlaceHolders >= 1) {
         for (let i = 1; i <= noOfPlaceHolders; i++) {
           let element = document.createElement("div");
           element.className = "imgList-fillholder";
@@ -44,9 +47,6 @@ class MoviesList extends Component {
 
   render() {
     const { images, isFetched, t } = this.props;
-    setTimeout(() => {
-      this.renderEmptyInList();
-    }, 500);
     if (!isFetched)
       return (
         <div className="movies-list-container">

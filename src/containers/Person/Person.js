@@ -36,48 +36,57 @@ class Movie extends Component {
     e.target.classList.add("img-loaded");
   };
 
+  renderPhotos() {
+    return (
+      <div className="photos-section">
+        <PersonImagesList />
+      </div>
+    );
+  }
+
   render() {
     const { person, isFetched, t } = this.props;
 
     if (!isFetched) return <div className="loading-box"></div>;
-
     return (
-      <div>
-        <Helmet>
-          <title>
-            {person.name} | {t("MovieFlix")}
-          </title>
-        </Helmet>
-        <div className="person">
-          <div className="person-inner">
-            <div className="person-image">
-              <img src={`${config.API_IMAGE.medium}/${person.profile_path}`} onLoad={this.imageLoaded} />
+      <div className="generic-background scroll-view">
+        <div className="fluid-container">
+          <Helmet>
+            <title>
+              {person.name} | {t("MovieFlix")}
+            </title>
+          </Helmet>
+          <div className="person">
+            <div className="person-inner">
+              <div className="person-image">
+                <img src={`${config.API_IMAGE.medium}/${person.profile_path}`} onLoad={this.imageLoaded} />
+              </div>
+              <div className="person-details">
+                <div className="person-name">{person.name}</div>
+                {person.birthday && (
+                  <div className="person-item">
+                    <span>{t("Birthday")}:</span>
+                    {person.birthday}
+                  </div>
+                )}
+                {person.place_of_birth && (
+                  <div className="person-item">
+                    <span>{t("Place of birth")}:</span>
+                    {person.place_of_birth}
+                  </div>
+                )}
+                {person.biography && (
+                  <div className="person-item biography">
+                    <span>{t("Biography")}:</span>
+                    {person.biography}
+                  </div>
+                )}
+              </div>
             </div>
-            <div className="person-details">
-              <div className="person-name">{person.name}</div>
-              {person.birthday && (
-                <div className="person-item">
-                  <span>{t("Birthday")}:</span>
-                  {person.birthday}
-                </div>
-              )}
-              {person.place_of_birth && (
-                <div className="person-item">
-                  <span>{t("Place of birth")}:</span>
-                  {person.place_of_birth}
-                </div>
-              )}
-              {person.biography && (
-                <div className="person-biography">
-                  <span>{t("Biography")}:</span>
-                  {person.biography}
-                </div>
-              )}
-              <PersonImagesList />
-            </div>
+            {this.renderPhotos()}
           </div>
+          <PersonCreditList />
         </div>
-        <PersonCreditList />
       </div>
     );
   }

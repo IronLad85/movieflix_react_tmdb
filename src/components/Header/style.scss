@@ -13,6 +13,7 @@ header {
   z-index: 10;
   width: 100%;
   .logo {
+    cursor: pointer !important;
     text-decoration: none;
     display: block;
     width: 300px;
@@ -37,13 +38,20 @@ header {
       flex: 0 50%;
     }
     .languages {
+      z-index: 100;
       flex: 0 60px;
       width: 60px;
+      text-transform: uppercase;
+      cursor: pointer;
       text-align: center;
       position: relative;
       div {
-        line-height: 70px;
-        margin: -20px 0;
+        line-height: 40px;
+        font-size: 17px !important;
+        margin: 0px 0;
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.2);
+        }
       }
       span {
         font-size: 14px;
@@ -95,7 +103,7 @@ header {
             display: block;
             text-decoration: none;
             color: #000000;
-            font-size: 14px;
+            font-size: 14px !important;
             text-transform: uppercase;
             &.active {
               font-weight: 600;

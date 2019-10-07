@@ -1,0 +1,59 @@
+.person_images {
+  .pswp-gallery {
+    justify-content: space-around;
+    .pswp-thumbnails {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 !important;
+      justify-content: inherit !important;
+      .pswp-thumbnail {
+        margin: 0 10px 20px;
+        width: 130px;
+        height: 180px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 4px;
+        background: #262626;
+        cursor: pointer;
+        img {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          transition: all 0.4s ease;
+        }
+        &:hover {
+          img {
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+
+  .personList-fillholder {
+    width: 130px;
+    height: 180px;
+    margin: 0 10px 20px;
+  }
+
+  @media screen and (max-width: 1279px) {
+    .pswp-thumbnail {
+      margin: 0 10px 20px;
+      width: 109px !important;
+      height: 150px !important;
+    }
+
+    .personList-fillholder {
+      width: 109px !important;
+      height: 150px !important;
+      margin: 0 10px 20px;
+    }
+  }
+}

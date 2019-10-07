@@ -47,6 +47,19 @@ class MoviesList extends Component {
     }
   };
 
+  renderFillHolders() {
+    let fillHolderUI = [];
+    let modulusValue = this.props.movies.results.length % 5;
+    let noOfFillHolders = 5 - modulusValue;
+    if (!!modulusValue && noOfFillHolders > 0) {
+      for (let i = 1; i <= noOfFillHolders; i++) {
+        fillHolderUI.push(<div className="movie-fillholder" />);
+      }
+      return fillHolderUI;
+    }
+    return null;
+  }
+
   render() {
     const { movies, isFetched } = this.props;
 
@@ -61,6 +74,7 @@ class MoviesList extends Component {
       <div className="movies-list-container">
         <div className="movies-inner">
           {movies.results && movies.results.map(movie => <MovieItem key={movie.id} movie={movie} />)}
+          {this.renderFillHolders()}
         </div>
         <div className="pagination-container">
           <Pagination

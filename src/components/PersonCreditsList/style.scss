@@ -1,8 +1,18 @@
 .person-credits {
+  padding-top: 40px;
   .title {
     font-size: 30px;
     color: #fff;
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin-bottom: 40px;
+    max-width: 85%;
+    margin: auto;
+    font-family: "Montserrat", sans-serif;
+  }
+
+  @media screen and(max-width:1365px) {
+    .title {
+      max-width: 92% !important;
+    }
   }
 }
