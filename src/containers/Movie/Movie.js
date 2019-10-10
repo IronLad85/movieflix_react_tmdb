@@ -7,7 +7,7 @@ import "./style.scss";
 
 import config from "../../config";
 
-import { LoadMovie, LoadMovieVideo } from "../../actions/movie";
+import { LoadMovie, showTrailer } from "../../actions/movie";
 import { LoadMovieCredits } from "../../actions/credits";
 import { LoadGenres } from "../../actions/genres";
 import MaterialIcon from "material-icons-react";
@@ -15,21 +15,18 @@ import MaterialIcon from "material-icons-react";
 import CreditList from "../../components/CreditList";
 import ImagesList from "../../components/ImagesList";
 import RecommendationsList from "../../components/RecommendationsList";
-import ModalVideo from "react-modal-video";
 
 class Movie extends Component {
   static path = "/movie/:movie_id(\\d+)/:cast?";
 
   constructor(props) {
     super(props);
-    this.state = { canShowVideoModal: false };
   }
 
   componentDidMount() {
-    const { match, LoadMovie, LoadMovieVideo, LoadGenres } = this.props;
+    const { match, LoadMovie, LoadGenres } = this.props;
     LoadGenres();
     LoadMovie(match.params.movie_id);
-    LoadMovieVideo(match.params.movie_id);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -83,8 +80,7 @@ class Movie extends Component {
     );
   }
 
-  renderTrailerButtons() {
-    let videos = this.props.videos;
+  renderTrailerButtons(videos) {
     return (
       <div>
         {videos.map((video, index) => (
@@ -92,7 +88,7 @@ class Movie extends Component {
             key={index}
             className="trailer-button"
             onClick={() => {
-              this.setState({ canShowVideoModal: true, selectedVideoId: video.key });
+              this.props.showTrailer(video.key);
             }}>
             <MaterialIcon icon="play_circle_filled" className="material-icons trailer-button-icon" />
             <div>Play Trailer {videos.length > 1 ? index + 1 : ""}</div>
@@ -148,7 +144,7 @@ class Movie extends Component {
                         return <li key={item.id}>{item.name}</li>;
                       })}
                   </ul>
-                  {this.renderTrailerButtons()}
+                  {this.renderTrailerButtons(movie.videoData)}
                 </div>
               </div>
             </div>
@@ -157,12 +153,12 @@ class Movie extends Component {
           </div>
           <RecommendationsList />
         </div>
-        <ModalVideo
-          channel="youtube"
-          isOpen={this.state.canShowVideoModal}
-          videoId={this.state.selectedVideoId}
-          onClose={() => this.setState({ canShowVideoModal: false })}
-        />
+        {/* <ModalVideo
+            channel="youtube"
+            isOpen={this.state.canShowVideoModal}
+            videoId={this.state.selectedVideoId}
+            onClose={() => this.setState({ canShowVideoModal: false })}
+          /> */}
       </div>
     );
   }
@@ -172,9 +168,9 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       LoadMovie,
-      LoadMovieVideo,
       LoadGenres,
-      LoadMovieCredits
+      LoadMovieCredits,
+      showTrailer
     },
     dispatch
   );
@@ -183,7 +179,6 @@ const mapStateToProps = state => {
   return {
     movie: state.movie.data,
     isFetched: state.movie.isFetched,
-    videos: _.values(state.movie.videos).filter(video => video.type === "Trailer") || [],
     currentLangID: state.system.currentLangID
   };
 };

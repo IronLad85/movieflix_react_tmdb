@@ -31,7 +31,6 @@ class PersonImagesList extends Component {
     let containerRef = document.getElementsByClassName("pswp-thumbnails")[0];
     let fillHolderCount = document.getElementsByClassName("personList-fillholder").length;
     let noOfTotalImages = (this.props.images || []).length;
-    console.log(containerRef, !fillHolderCount, noOfTotalImages % 7 !== 0);
     if (containerRef && !fillHolderCount && noOfTotalImages % 7 !== 0) {
       let noOfPlaceHolders = 7 - (noOfTotalImages % 7);
       if (noOfPlaceHolders >= 1) {

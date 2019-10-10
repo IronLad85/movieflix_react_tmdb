@@ -43,7 +43,7 @@ class Header extends Component {
             <div
               className="logo"
               onClick={() => {
-                if (window.location.pathname !== "/") {
+                if (window.location.pathname !== "/#/") {
                   this.props.history.push("/");
                 }
               }}>

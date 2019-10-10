@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { ChangeLang } from "./actions/system";
+import { hideTrailer } from "./actions/movie";
+import ModalVideo from "react-modal-video";
 import Header from "./components/Header";
 import config from "./config";
 import routes from "./routes";
@@ -22,18 +24,37 @@ class App extends Component {
   }
 
   render() {
+    const { t, canShowTrailer, trailerId } = this.props;
     return (
       <div className="wrapper">
         <Header />
         <div className="app-container">{routes}</div>
+        {canShowTrailer ? (
+          <ModalVideo
+            channel="youtube"
+            isOpen={canShowTrailer}
+            videoId={trailerId}
+            onClose={() => {
+              this.props.hideTrailer();
+            }}
+          />
+        ) : null}
       </div>
     );
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    canShowTrailer: state.movie.canShowTrailer,
+    trailerId: state.movie.trailerId
+  };
+};
+
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
+      hideTrailer,
       ChangeLang
     },
     dispatch
@@ -41,7 +62,7 @@ const mapDispatchToProps = dispatch =>
 export default translate("translations")(
   withRouter(
     connect(
-      null,
+      mapStateToProps,
       mapDispatchToProps
     )(App)
   )

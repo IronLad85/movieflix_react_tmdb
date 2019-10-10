@@ -1,5 +1,4 @@
 import * as Actions from "../actions/movie";
-
 const initialState = {
   data: {},
   isFetched: false
@@ -29,6 +28,18 @@ export default (state = initialState, action) => {
         ...state,
         videos: action.payload.results,
         areVideosFetched: true
+      };
+    case Actions.SHOW_TRAILER:
+      return {
+        ...state,
+        trailerId: action.payload.trailerId,
+        canShowTrailer: action.payload.canShowTrailer
+      };
+    case Actions.HIDE_TRAILER:
+      return {
+        ...state,
+        trailerId: null,
+        canShowTrailer: false
       };
     default:
       return state;
