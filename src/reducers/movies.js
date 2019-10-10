@@ -39,6 +39,11 @@ export default (state = initialState, action) => {
         ...state,
         filter: action.payload
       };
+    case Actions.CHANGE_MOVIES_GENRE:
+      return {
+        ...state,
+        genre: action.payload
+      };
     case Actions.CLEAR_SEARCH_TEXT:
       return {
         ...state,

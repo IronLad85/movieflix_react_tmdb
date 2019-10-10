@@ -4,7 +4,6 @@
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    margin-right: 38px;
     margin-bottom: 25px;
     ul {
       padding: 0;
@@ -28,6 +27,26 @@
           color: #000000;
         }
       }
+    }
+  }
+
+  .filter-content {
+    flex-direction: row;
+    display: flex;
+    width: 94%;
+    margin-right: auto;
+    justify-content: flex-end;
+  }
+
+  .select-box {
+    width: 160px;
+    z-index: 10;
+    padding-right: 2%;
+  }
+
+  @media screen and (min-width: 1440px) {
+    .filter-content {
+      width: 94%;
     }
   }
 }

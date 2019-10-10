@@ -19,7 +19,7 @@ class Home extends Component {
           <Helmet>
             <title>{t("MovieFlix")}</title>
           </Helmet>
-          {/* <MoviesFilter /> */}
+          <MoviesFilter />
           <MoviesList />
         </div>
       </div>

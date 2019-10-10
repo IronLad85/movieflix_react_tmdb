@@ -52,7 +52,7 @@ class Header extends Component {
             <div className="header-search-field">
               <input
                 type="text"
-                placeholder={t("Movies, person, movie theaters")}
+                placeholder={t("Search Movies...")}
                 onChange={this.searchInputChange}
                 value={searchText}
               />

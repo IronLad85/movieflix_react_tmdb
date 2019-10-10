@@ -16,7 +16,7 @@ header {
     cursor: pointer !important;
     text-decoration: none;
     display: block;
-    width: 300px;
+    width: max-content;
     span {
       padding: 12px 15px;
       padding-left: 0;
@@ -34,11 +34,9 @@ header {
     justify-content: space-between;
     width: 100%;
     padding: 15px 0;
-    div {
-      flex: 0 50%;
-    }
+
     .languages {
-      z-index: 100;
+      z-index: 10;
       flex: 0 60px;
       width: 60px;
       text-transform: uppercase;

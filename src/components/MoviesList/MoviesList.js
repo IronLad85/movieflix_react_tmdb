@@ -20,16 +20,17 @@ class MoviesList extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { match, LoadGenres, LoadMovies, LoadSearchMovies, currentLangID, filter, searchText } = this.props;
+    const { match, LoadGenres, LoadMovies, LoadSearchMovies, currentLangID, filter, genre, searchText } = this.props;
     if (
       Number(nextProps.currentLangID) !== Number(currentLangID) ||
       nextProps.filter !== filter ||
+      nextProps.genre !== genre ||
       nextProps.match.params.query !== match.params.query ||
       nextProps.match.params.page !== match.params.page
     ) {
       LoadGenres();
       if (searchText.length === 0) {
-        LoadMovies(nextProps.match.params.page, nextProps.filter);
+        LoadMovies(nextProps.match.params.page, nextProps.filter, nextProps.genre);
       } else {
         LoadSearchMovies(nextProps.match.params.query, nextProps.match.params.page);
       }
@@ -76,23 +77,27 @@ class MoviesList extends Component {
           {movies.results && movies.results.map(movie => <MovieItem key={movie.id} movie={movie} />)}
           {this.renderFillHolders()}
         </div>
-        <div className="pagination-container">
-          <Pagination
-            activePage={movies.page}
-            itemsCountPerPage={20}
-            totalItemsCount={movies.total_results}
-            pageRangeDisplayed={6}
-            onChange={this.handlePageChange}
-            linkClassPrev={"pagination-border"}
-            linkClassNext={"pagination-border"}
-            linkClassFirst={"pagination-border"}
-            linkClassLast={"pagination-border"}
-            prevPageText={<MaterialIcon icon="chevron_left" className="material-icons pagination-icon" />}
-            nextPageText={<MaterialIcon icon="chevron_right" className="material-icons pagination-icon" />}
-            firstPageText={<MaterialIcon icon="first_page" className="material-icons pagination-icon" />}
-            lastPageText={<MaterialIcon icon="last_page" className="material-icons pagination-icon" />}
-          />
-        </div>
+        {(movies.results || []).length ? (
+          <div className="pagination-container">
+            <Pagination
+              activePage={movies.page}
+              itemsCountPerPage={20}
+              totalItemsCount={movies.total_results}
+              pageRangeDisplayed={6}
+              onChange={this.handlePageChange}
+              linkClassPrev={"pagination-border"}
+              linkClassNext={"pagination-border"}
+              linkClassFirst={"pagination-border"}
+              linkClassLast={"pagination-border"}
+              prevPageText={<MaterialIcon icon="chevron_left" className="material-icons pagination-icon" />}
+              nextPageText={<MaterialIcon icon="chevron_right" className="material-icons pagination-icon" />}
+              firstPageText={<MaterialIcon icon="first_page" className="material-icons pagination-icon" />}
+              lastPageText={<MaterialIcon icon="last_page" className="material-icons pagination-icon" />}
+            />
+          </div>
+        ) : (
+          <div className="no-results"> Sorry! No Movies Found.</div>
+        )}
       </div>
     );
   }
@@ -114,6 +119,7 @@ const mapStateToProps = state => {
     searchText: state.movies.searchText,
     isFetched: state.movies.isFetched,
     filter: state.movies.filter,
+    genre: state.movies.genre,
     currentLangID: state.system.currentLangID
   };
 };

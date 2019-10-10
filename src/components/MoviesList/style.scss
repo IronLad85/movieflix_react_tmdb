@@ -11,10 +11,23 @@
   position: relative;
 }
 
+.no-results {
+  font-size: 35px;
+  color: white;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 10%;
+}
+
+.loading-box {
+  min-width: 1380px;
+}
+
 .movies-list-container {
   display: flex;
   flex: 1;
-  height: 100%;
+  min-height: 95%;
+  max-height: 100%;
   justify-content: center;
   flex-direction: column;
 }
