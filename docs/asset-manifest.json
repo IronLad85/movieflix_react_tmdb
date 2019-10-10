@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.52bfd83b.chunk.css",
-    "main.js": "/static/js/main.dbc2192d.chunk.js",
-    "main.js.map": "/static/js/main.dbc2192d.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.6ab29ad5.js",
-    "runtime-main.js.map": "/static/js/runtime-main.6ab29ad5.js.map",
-    "static/css/2.944b3c68.chunk.css": "/static/css/2.944b3c68.chunk.css",
-    "static/js/2.afe7d17a.chunk.js": "/static/js/2.afe7d17a.chunk.js",
-    "static/js/2.afe7d17a.chunk.js.map": "/static/js/2.afe7d17a.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.572ed112a15c4fd63b0effc3cf841f78.js": "/precache-manifest.572ed112a15c4fd63b0effc3cf841f78.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.944b3c68.chunk.css.map": "/static/css/2.944b3c68.chunk.css.map",
-    "static/css/main.52bfd83b.chunk.css.map": "/static/css/main.52bfd83b.chunk.css.map",
-    "static/media/main.css": "/static/media/bg5.57e6e61d.jpg",
-    "static/media/photoswipe.css": "/static/media/default-skin.b257fa9c.svg"
+    "main.css": "/movieflix_react_tmdb/static/css/main.3621b454.chunk.css",
+    "main.js": "/movieflix_react_tmdb/static/js/main.fce0af23.chunk.js",
+    "main.js.map": "/movieflix_react_tmdb/static/js/main.fce0af23.chunk.js.map",
+    "runtime-main.js": "/movieflix_react_tmdb/static/js/runtime-main.572564c3.js",
+    "runtime-main.js.map": "/movieflix_react_tmdb/static/js/runtime-main.572564c3.js.map",
+    "static/css/2.01955e20.chunk.css": "/movieflix_react_tmdb/static/css/2.01955e20.chunk.css",
+    "static/js/2.326d89ab.chunk.js": "/movieflix_react_tmdb/static/js/2.326d89ab.chunk.js",
+    "static/js/2.326d89ab.chunk.js.map": "/movieflix_react_tmdb/static/js/2.326d89ab.chunk.js.map",
+    "index.html": "/movieflix_react_tmdb/index.html",
+    "precache-manifest.17ee743fa7f33ef932e92e5b9ac2ccda.js": "/movieflix_react_tmdb/precache-manifest.17ee743fa7f33ef932e92e5b9ac2ccda.js",
+    "service-worker.js": "/movieflix_react_tmdb/service-worker.js",
+    "static/css/2.01955e20.chunk.css.map": "/movieflix_react_tmdb/static/css/2.01955e20.chunk.css.map",
+    "static/css/main.3621b454.chunk.css.map": "/movieflix_react_tmdb/static/css/main.3621b454.chunk.css.map",
+    "static/media/main.css": "/movieflix_react_tmdb/static/media/bg5.57e6e61d.jpg",
+    "static/media/photoswipe.css": "/movieflix_react_tmdb/static/media/default-skin.b257fa9c.svg"
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "react_movieapp",
   "version": "0.1.0",
+  "homepage": "https://ironlad85.github.io/movieflix_react_tmdb",
   "private": true,
   "dependencies": {
     "@babel/core": "7.6.0",
