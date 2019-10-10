@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f588bbab8f5b7227b98b126a4e3738e8",
+    "revision": "0ba66718cc80f06902310e2756f3ba8f",
     "url": "/movieflix_react_tmdb/index.html"
   },
   {
@@ -8,15 +8,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/movieflix_react_tmdb/static/css/2.01955e20.chunk.css"
   },
   {
-    "revision": "c4a927fee9fd1ce82155",
-    "url": "/movieflix_react_tmdb/static/css/main.3621b454.chunk.css"
+    "revision": "6a880d19295694d43420",
+    "url": "/movieflix_react_tmdb/static/css/main.41b12c59.chunk.css"
   },
   {
     "revision": "61dd47e10598430f50de",
     "url": "/movieflix_react_tmdb/static/js/2.326d89ab.chunk.js"
   },
   {
-    "revision": "c4a927fee9fd1ce82155",
+    "revision": "6a880d19295694d43420",
     "url": "/movieflix_react_tmdb/static/js/main.fce0af23.chunk.js"
   },
   {

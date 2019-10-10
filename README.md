@@ -1,10 +1,8 @@
-(setq markdown-css-paths '("/docs/markdown.css"))
-
 # MovieFlix
 
 ## Made using React.js + Redux With TMDB API
 
-<div class="demo-button" href="https://ironlad85.github.io/movieflix_react_tmdb/"> View Demo </div>
+<a style="font-weight:bold" href="https://ironlad85.github.io/movieflix_react_tmdb/"> View Demo </a>
 
 <br />
 Download or clone project and run following command to Run the React.js App
