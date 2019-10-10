@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0ba66718cc80f06902310e2756f3ba8f",
+    "revision": "ed4a3b3347af2ad0d012094bb6232b48",
     "url": "/movieflix_react_tmdb/index.html"
   },
   {
-    "revision": "61dd47e10598430f50de",
-    "url": "/movieflix_react_tmdb/static/css/2.01955e20.chunk.css"
+    "revision": "eb7ea1ee3852ce783598",
+    "url": "/movieflix_react_tmdb/static/css/2.c37ffd3c.chunk.css"
   },
   {
-    "revision": "6a880d19295694d43420",
+    "revision": "8af7b76cc63077112197",
     "url": "/movieflix_react_tmdb/static/css/main.41b12c59.chunk.css"
   },
   {
-    "revision": "61dd47e10598430f50de",
-    "url": "/movieflix_react_tmdb/static/js/2.326d89ab.chunk.js"
+    "revision": "eb7ea1ee3852ce783598",
+    "url": "/movieflix_react_tmdb/static/js/2.e0601bdd.chunk.js"
   },
   {
-    "revision": "6a880d19295694d43420",
-    "url": "/movieflix_react_tmdb/static/js/main.fce0af23.chunk.js"
+    "revision": "8af7b76cc63077112197",
+    "url": "/movieflix_react_tmdb/static/js/main.65aaadaa.chunk.js"
   },
   {
     "revision": "21b04094e2a275fee705",
