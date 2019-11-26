@@ -2,11 +2,11 @@
 
 ## Made using React.js + Redux With TMDB API
 
-[<img src="./docs/demo.png" width="200"/>](https://ironlad85.github.io/movieflix_react_tmdb/)
+[<img src="demo.png" width="200"/>](https://ironlad85.github.io/movieflix_react_tmdb/)
 
 ## Screenshot
 <hr/>
-<img src="./docs/tmdb_pic1.png" width="600"/>
+<img src="tmdb_pic1.png" width="800"/>
 
 ## How to Run
 <hr/>
