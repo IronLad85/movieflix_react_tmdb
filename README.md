@@ -6,7 +6,7 @@
 
 ## Screenshot
 <hr/>
-<img src="tmdb_pic1.png" width="800"/>
+<img src="tmdb_pic1.PNG" width="800"/>
 
 ## How to Run
 <hr/>
