@@ -9,12 +9,12 @@ const config = {
   },
   API_LANGUAGES: [
     {
-      id: 2,
+      id: 1,
       title: "en",
       code: "en-US"
     },
     {
-      id: 1,
+      id: 2,
       title: "ru",
       code: "ru-RU"
     }
