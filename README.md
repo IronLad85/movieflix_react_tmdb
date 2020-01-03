@@ -2,9 +2,14 @@
 
 ## Made using React.js + Redux With TMDB API
 
-<a style="font-weight:bold" href="https://ironlad85.github.io/movieflix_react_tmdb/"> View Demo </a>
+[<img src="demo.png" width="200"/>](https://ironlad85.github.io/movieflix_react_tmdb/)
 
-<br />
+## Screenshot
+<hr/>
+<img src="tmdb_pic1.PNG" width="800"/>
+
+## How to Run
+<hr/>
 Download or clone project and run following command to Run the React.js App
 
 ### `npm start`
